@@ -29,6 +29,9 @@ select.addEventListener("change",function(){
         let contenedor =  document.createElement("div")
         contenedor.setAttribute("class","contenedor")
         contenedor.append(img)
+        let p = document.createElement("p")
+        p.innerHTML = selectedOption.value
+        contenedor.append(p)
         root.innerHTML= ""
         root.append(contenedor)
     });
