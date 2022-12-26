@@ -13,7 +13,7 @@ fetch('https://pokeapi.co/api/v2/generation/1/')
     }
 });
 let root = document.getElementById("root")
-root.append(select)
+root.insertAdjacentElement("beforebegin",select)
 
 select.addEventListener("change",function(){
     var selectedOption = this.options[select.selectedIndex];
@@ -26,7 +26,11 @@ select.addEventListener("change",function(){
         let img = document.createElement("img")
         img.setAttribute("src",url)
         img.setAttribute("alt",selectedOption.value)
-        root.append(img)
+        let contenedor =  document.createElement("div")
+        contenedor.setAttribute("class","contenedor")
+        contenedor.append(img)
+        root.innerHTML= ""
+        root.append(contenedor)
     });
 
     console.log(selectedOption.value + ': ' + selectedOption.text);
